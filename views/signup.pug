@@ -1,0 +1,41 @@
+extends layout
+
+block content
+ h1 #{title} Form
+    
+        form(action="/result", method="post")
+            p
+              input(id="id" type="email" name="id" placeholder="input your id " disabled=false)
+              input(id="checkId" type="button" value="ID check" disabled=false)
+            //- script.
+            //-     let checkid= document.getElementById("checkId")
+            //-     let id = document.getElementById("id")
+            //-     check = function(){
+
+            //-     }
+            
+            p
+              input(type="text" name="firstName" placeholder="input your first name!")
+              input(type="text" name="lastName" placeholder="input your last name!")
+            p
+              input(type="text" name="phoneNumber" placeholder="input your phoneNumber!")
+            p
+              input(type="text" name="address" placeholder="input your address")    
+            p
+              input(id="password" type="password" name="password" placeholder="input password")
+            p
+              input(id="confirmPassword" type="password" name="password2" placeholder="input your passowrd again")   
+            p
+              button(type="submit") 전송
+            script.
+                  let passowrd = document.getElementById("password");
+                  let confirmPassword = document.getElementById("confirmPassword");
+                  validatePassword=function(){
+                      if(password.value != confirmPassword.value)
+                          confirmPassword.setCustomValidity("Passwords Don't Match");
+                      else
+                          confirmPassword.setCustomValidity(" ");
+                  }
+
+                  password.onchange = validatePassword;
+                  confirmPassword.onkeyup = validatePassword;
