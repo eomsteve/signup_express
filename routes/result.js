@@ -1,12 +1,9 @@
-var express = require('express');
-let app= express();
-var path = require('path');
-var router = express.Router();
-let mailer = require('express-mailer');
-let veri = require('../public/javascripts/codeGenerator.js');
-
-
-
+const express = require('express');
+const app= express();
+const path = require('path');
+const router = express.Router();
+const mailer = require('express-mailer');
+const veri = require('../public/javascripts/codeGenerator.js');
 app.set('views', path.join('/Users/seonghyuneom/dev/sing_up_express/', 'views'));
 app.set('view engine', 'pug');
 
@@ -21,16 +18,27 @@ mailer.extend(app,{
     }
   });
   
-
+  
 router.post('/', function(req, res, next) {
-    var id = req.body.id;
-    var firstName = req.body.firstName;
-    let lastName = req.body.lastName;
-    let phoneNumber = req.body.phonNumber;
-    let address = req.body.address;
-    let password = req.body.password;
+    let id = req.body.id;
+    let firstName=  req.body.firstName;
+    let lastName =  req.body.lastName;
+    let phoneNumber =  req.body.phonNumber;
+    let address =  req.body.address;
+    let password =  req.body.password;
     let tempCode = new veri();
-    let verificationCode = tempCode.getVerificationCode();
+    let verificationCode =  tempCode.getVerificationCode();
+    
+    req.session.temp={
+        id: id,
+        firstName: firstName,
+        phoneNumber:phoneNumber,
+        lastName: lastName, 
+        address: address, 
+        password: password,
+        tempCode:verificationCode
+    }
+
     
     app.mailer.send('email', {
          to: id, 

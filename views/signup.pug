@@ -6,7 +6,7 @@ block content
         form(action="/result", method="post")
             p
               input(id="id" type="email" name="id" placeholder="input your id " disabled=false)
-              input(id="checkId" type="button" value="ID check" disabled=false)
+              //- input(id="checkId" type="button" value="ID check" disabled=false)
             p
               input(type="text" name="firstName" placeholder="input your first name!")
               input(type="text" name="lastName" placeholder="input your last name!")
@@ -20,15 +20,15 @@ block content
               input(id="confirmPassword" type="password" name="password2" placeholder="input your passowrd again")   
             p
               button(type="submit") 전송
-            script.
-                  let passowrd = document.getElementById("password");
-                  let confirmPassword = document.getElementById("confirmPassword");
-                  validatePassword=function(){
-                      if(password.value != confirmPassword.value)
-                          confirmPassword.setCustomValidity("Passwords Don't Match");
-                      else
-                          confirmPassword.setCustomValidity(" ");
-                  }
+            //- script.
+            //-       let passowrd = document.getElementById("password");
+            //-       let confirmPassword = document.getElementById("confirmPassword");
+            //-       validatePassword=function(){
+            //-           if(password.value != confirmPassword.value)
+            //-               confirmPassword.setCustomValidity("Passwords Don't Match");
+            //-           else
+            //-               confirmPassword.setCustomValidity(" ");
+            //-       }
 
-                  password.onchange = validatePassword;
-                  confirmPassword.onkeyup = validatePassword;
+            //-       password.onchange = validatePassword;
+            //-       confirmPassword.onkeyup = validatePassword;

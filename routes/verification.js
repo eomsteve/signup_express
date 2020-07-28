@@ -4,13 +4,25 @@ var router = express.Router();
 /* GET home page. */
 router.post('/', function(req, res, next) {
   let temp = req.body.num;
-  let confirm = req.body.tempCode;
+  let confirm = req.session.temp.tempCode;
   console.log(temp);
-  console.log(req.body);
+  console.log(confirm);
   
   
   if(temp == confirm){
-      res.send("회원가입 성공!")
+      req.session.destroy(
+        function (err) {
+            if (err) {
+                console.log('세션 삭제시 에러');
+                return;
+            }
+            console.log('세션 삭제 성공');
+            res.clearCookie('key');
+            res.redirect('/users');
+        }
+        
+    ); 
+
   }else{
 
      res.send(`${temp}, ${confirm},${req.body}`)
