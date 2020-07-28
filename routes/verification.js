@@ -11,14 +11,14 @@ router.post('/', function(req, res, next) {
   
   if(temp == confirm){
       req.session.destroy(
-        function (err) {
+         (err) =>{
             if (err) {
                 console.log('세션 삭제시 에러');
                 return;
             }
             console.log('세션 삭제 성공');
             res.clearCookie('key');
-            res.redirect('/users');
+            res.redirect('/');
         }
         
     ); 

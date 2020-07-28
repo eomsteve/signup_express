@@ -38,17 +38,17 @@ app.use('/verification',verificationRouter);
 
 
 
-//mailer information
-mailer.extend(app,{
-  host: 'smtp.gmail.com', // hostname
-  secureConnection: true, // use SSL
-  port: 465, // port for secure SMTP
-  transportMethod: 'SMTP', // default is SMTP. Accepts anything that nodemailer accepts
-  auth: {
-    user: 'intuseer.sheom@gmail.com',
-    pass: 'djatjdgus1!'
-  }
-});
+// //mailer information
+// mailer.extend(app,{
+//   host: 'smtp.gmail.com', // hostname
+//   secureConnection: true, // use SSL
+//   port: 465, // port for secure SMTP
+//   transportMethod: 'SMTP', // default is SMTP. Accepts anything that nodemailer accepts
+//   auth: {
+//     user: 'intuseer.sheom@gmail.com',
+//     pass: 'djatjdgus1!'
+//   }
+// });
 
 
 // catch 404 and forward to error handler
