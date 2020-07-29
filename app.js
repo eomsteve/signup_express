@@ -4,12 +4,14 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const session = require('express-session');
-const mailer = require('express-mailer');
 const fileStore = require('session-file-store')(session);
+
+//router add
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const resultRouter= require('./routes/result');
 const verificationRouter= require('./routes/verification');
+
 const app = express();
 
 // view engine setup

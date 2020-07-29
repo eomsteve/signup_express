@@ -24,11 +24,13 @@ router.post('/', function(req, res, next) {
     let id = req.body.id;
     let firstName=  req.body.firstName;
     let lastName =  req.body.lastName;
-    let phoneNumber =  req.body.phonNumber;
+    let phoneNumber =  req.body.phoneNumber;
     let address =  req.body.address;
     let password =  req.body.password;
     let tempCode = new veri();
     let verificationCode =  tempCode.getVerificationCode();
+    console.log("post man id : "+id);
+
     
     req.session.temp={
         id: id,
@@ -62,7 +64,9 @@ router.post('/', function(req, res, next) {
                              tempCode:verificationCode
                               });
         });
+        console.log("post man id : "+id);
     console.log("## post request"); 
+    
     
 });
 
