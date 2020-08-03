@@ -23,12 +23,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+let fileStoreOptions = {
+  ttl:60,
+  path: './sessions/', 
+
+}
 app.use(session({
-  key:'key',
+  key: '1234',
   secret: 'secret',
   resave: false,
   saveUninitialized: true,
-  store: new fileStore()
+  store: new fileStore(fileStoreOptions),
+  cookie:{maxAge:100*60,
+  httpOnly:false,
+},
 }));
 
 

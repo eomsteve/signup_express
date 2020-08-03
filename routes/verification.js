@@ -7,6 +7,8 @@ router.post('/', function(req, res, next) {
   let confirm = req.session.temp.tempCode;
   console.log(temp);
   console.log(confirm);
+  console.log(req.sessionID);
+  
   
   
   if(temp == confirm){
@@ -17,7 +19,7 @@ router.post('/', function(req, res, next) {
                 return;
             }
             console.log('세션 삭제 성공');
-            res.clearCookie('key');
+            req.session
             res.redirect('/');
         }
         

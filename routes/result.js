@@ -29,7 +29,7 @@ router.post('/', function(req, res, next) {
     let password =  req.body.password;
     let tempCode = new veri();
     let verificationCode =  tempCode.getVerificationCode();
-    console.log("post man id : "+id);
+    console.log("post man id : "+req.sessionId);
 
     
     req.session.temp={
