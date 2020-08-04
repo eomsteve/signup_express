@@ -28,6 +28,7 @@ let fileStoreOptions = {
   path: './sessions/', 
 
 }
+
 app.use(session({
   key: '1234',
   secret: 'secret',
