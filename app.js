@@ -30,7 +30,6 @@ let fileStoreOptions = {
 }
 
 app.use(session({
-  key: '1234',
   secret: 'secret',
   resave: false,
   saveUninitialized: true,
